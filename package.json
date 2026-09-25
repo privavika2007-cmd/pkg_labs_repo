@@ -1,0 +1,10 @@
+{
+  "name": "color-lab",
+  "version": "1.0.0",
+  "description": "Лабораторная работа 1. Цветовые модели: CMYK <-> LAB <-> HSV (вариант 5)",
+  "type": "module",
+  "scripts": {
+    "test": "node js/tests/tests.js",
+    "start": "python3 -m http.server 8080"
+  }
+}

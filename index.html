@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Color Lab — CMYK ↔ LAB ↔ HSV</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="dot"></span>
+    <div>
+      <h1>Color Lab</h1>
+      <p>Лабораторная работа 1 · вариант 5 · CMYK ↔ LAB ↔ HSV</p>
+    </div>
+  </div>
+  <a class="tests-link" href="js/tests/tests.html">Тесты</a>
+</header>
+
+<main>
+  <!-- Панель настроек -->
+  <section class="card settings">
+    <div class="field">
+      <label for="illuminant">Источник освещения</label>
+      <select id="illuminant">
+        <option value="D65">D65 — дневной свет (sRGB)</option>
+        <option value="D50">D50 — тёплый дневной (полиграфия)</option>
+        <option value="E">E — равноэнергетический</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="adaptation">Построение матрицы</label>
+      <select id="adaptation">
+        <option value="primaries">По первичным цветам</option>
+        <option value="bradford">Адаптация Брэдфорда от D65</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="gamut">Выход за охват</label>
+      <select id="gamut">
+        <option value="clip">Clipping — обрезание</option>
+        <option value="scale">Scaling — пропорциональное сжатие</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="separation">Цветоделение CMYK</label>
+      <select id="separation">
+        <option value="gcr">GCR — замена серой компоненты</option>
+        <option value="ucr">UCR — удаление подложечного цвета</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="amount">Доля чёрной краски <b id="amountVal">100%</b></label>
+      <input type="range" id="amount" min="0" max="100" value="100">
+    </div>
+
+    <div class="field" id="ucrStartField">
+      <label for="ucrStart">Порог теней UCR <b id="ucrStartVal">50%</b></label>
+      <input type="range" id="ucrStart" min="0" max="95" value="50">
+    </div>
+  </section>
+  <!-- Превью цвета -->
+  <section class="card preview-card">
+    <div class="preview" id="preview"></div>
+    <div class="preview-info">
+      <div class="field">
+        <label for="picker">Палитра системы</label>
+        <input type="color" id="picker" value="#e6783c">
+      </div>
+      <div class="field">
+        <label for="hex">HEX</label>
+        <input type="text" id="hex" maxlength="7" spellcheck="false">
+      </div>
+      <dl class="xyz">
+        <dt>RGB</dt><dd id="rgbOut">—</dd>
+        <dt>XYZ</dt><dd id="xyzOut">—</dd>
+        <dt>x, y (МКО)</dt><dd id="xyOut">—</dd>
+      </dl>
+    </div>
+    <p class="warning" id="warning" hidden></p>
+  </section>
+  <!-- Три модели -->
+  <section class="models">
+
+    <!-- CMYK -->
+    <article class="card model" data-model="cmyk">
+      <h2>CMYK <span>0…100 %</span></h2>
+      <div class="controls" id="cmykControls"></div>
+      <div class="plane">
+        <canvas id="cmykPlane" width="260" height="260"></canvas>
+        <p class="plane-hint">Плоскость C×M при текущих Y и K</p>
+      </div>
+    </article>
+
+    <!-- LAB -->
+    <article class="card model" data-model="lab">
+      <h2>CIE Lab <span>L 0…100 · a,b −128…127</span></h2>
+      <div class="controls" id="labControls"></div>
+      <div class="plane">
+        <canvas id="labPlane" width="260" height="260"></canvas>
+        <p class="plane-hint">Плоскость a×b при текущем L</p>
+      </div>
+    </article>
+
+    <!-- HSV -->
+    <article class="card model" data-model="hsv">
+      <h2>HSV <span>H 0…360° · S,V 0…100 %</span></h2>
+      <div class="controls" id="hsvControls"></div>
+      <div class="plane">
+        <canvas id="huePlane" width="260" height="22"></canvas>
+        <canvas id="hsvPlane" width="260" height="238"></canvas>
+        <p class="plane-hint">Полоса тона H и плоскость S×V</p>
+      </div>
+    </article>
+
+  </section>
+  <!-- МКО и матрицы -->
+  <section class="bottom">
+    <article class="card">
+      <h2>Цветовой график МКО</h2>
+      <canvas id="cieChart" width="420" height="440"></canvas>
+      <p class="hint">Белая точка источника, треугольник охвата sRGB и текущий цвет.</p>
+    </article>
+
+    <article class="card">
+      <h2>Матрицы перехода (пересчитаны для <b id="illName">D65</b>)</h2>
+      <h3>RGB → XYZ</h3>
+      <table class="matrix" id="mFwd"></table>
+      <h3>XYZ → RGB</h3>
+      <table class="matrix" id="mInv"></table>
+      <h3>Белая точка</h3>
+      <p class="mono" id="wpOut">—</p>
+      <p class="hint">Матрицы считаются из координат цветности первичных цветов sRGB
+         и белой точки и перестраиваются при смене настроек.</p>
+    </article>
+  </section>
+
+</main>
+
+<footer>Лабораторная работа 1. Цветовые модели</footer>
+
+<script type="module" src="js/view/view.js"></script>
+</body>
+</html>
