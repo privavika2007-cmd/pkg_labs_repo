@@ -1,0 +1,193 @@
+{
+ "bmp_1bit.bmp": {
+  "kind": "BMP",
+  "bits": 1,
+  "dpi": 96,
+  "compression": "BI_RGB"
+ },
+ "bmp_4bit.bmp": {
+  "kind": "BMP",
+  "bits": 8,
+  "compression": "BI_RGB"
+ },
+ "bmp_8bit_gray.bmp": {
+  "kind": "BMP",
+  "bits": 8,
+  "compression": "BI_RGB"
+ },
+ "bmp_24bit_300dpi.bmp": {
+  "kind": "BMP",
+  "bits": 24,
+  "dpi": 300,
+  "compression": "BI_RGB"
+ },
+ "bmp_32bit.bmp": {
+  "kind": "BMP",
+  "bits": 32
+ },
+ "bmp_rle8.bmp": {
+  "kind": "BMP",
+  "bits": 8,
+  "dpi": 96,
+  "compression": "BI_RLE8"
+ },
+ "bmp_16bit_565.bmp": {
+  "kind": "BMP",
+  "bits": 16,
+  "compression": "BI_BITFIELDS",
+  "width": 10,
+  "height": 4
+ },
+ "png_rgb_72dpi.png": {
+  "kind": "PNG",
+  "bits": 24,
+  "dpi": 72,
+  "compression": "Deflate"
+ },
+ "png_rgba.png": {
+  "kind": "PNG",
+  "bits": 32
+ },
+ "png_gray_1bit.png": {
+  "kind": "PNG",
+  "bits": 1
+ },
+ "png_palette.png": {
+  "kind": "PNG",
+  "bits": 8
+ },
+ "png_gray16.png": {
+  "kind": "PNG",
+  "bits": 16
+ },
+ "png_interlaced.png": {
+  "kind": "PNG",
+  "bits": 24
+ },
+ "jpeg_baseline_300dpi.jpg": {
+  "kind": "JPEG",
+  "bits": 24,
+  "dpi": 300,
+  "compression": "Baseline"
+ },
+ "jpeg_progressive.jpg": {
+  "kind": "JPEG",
+  "bits": 24,
+  "compression": "Progressive"
+ },
+ "jpeg_gray.jpg": {
+  "kind": "JPEG",
+  "bits": 8,
+  "compression": "Baseline"
+ },
+ "jpeg_cmyk.jpg": {
+  "kind": "JPEG",
+  "bits": 32,
+  "compression": "Baseline"
+ },
+ "jpeg_exif_240dpi.jpg": {
+  "kind": "JPEG",
+  "bits": 24,
+  "dpi": 240
+ },
+ "gif_static.gif": {
+  "kind": "GIF",
+  "bits": 8,
+  "compression": "LZW"
+ },
+ "gif_animated.gif": {
+  "kind": "GIF",
+  "frames": 3,
+  "compression": "LZW"
+ },
+ "tiff_raw_150dpi.tif": {
+  "kind": "TIFF",
+  "bits": 24,
+  "dpi": 150,
+  "compression": "без сжатия"
+ },
+ "tiff_lzw.tif": {
+  "kind": "TIFF",
+  "bits": 24,
+  "compression": "LZW"
+ },
+ "tiff_deflate.tif": {
+  "kind": "TIFF",
+  "bits": 32,
+  "compression": "Deflate"
+ },
+ "tiff_packbits_gray.tif": {
+  "kind": "TIFF",
+  "bits": 8,
+  "compression": "PackBits"
+ },
+ "tiff_cmyk.tif": {
+  "kind": "TIFF",
+  "bits": 32
+ },
+ "tiff_g4_1bit.tif": {
+  "kind": "TIFF",
+  "bits": 1,
+  "compression": "Group 4"
+ },
+ "tiff_3pages.tif": {
+  "kind": "TIFF",
+  "pages": 3
+ },
+ "pcx_8bit.pcx": {
+  "kind": "PCX",
+  "bits": 8,
+  "compression": "RLE"
+ },
+ "pcx_24bit.pcx": {
+  "kind": "PCX",
+  "bits": 24,
+  "compression": "RLE"
+ },
+ "pcx_1bit.pcx": {
+  "kind": "PCX",
+  "bits": 1,
+  "compression": "RLE"
+ },
+ "broken_png_no_iend.png": {
+  "status": "Файл повреждён",
+  "problem": "IEND"
+ },
+ "broken_jpeg_no_eoi.jpg": {
+  "status": "Файл повреждён",
+  "problem": "EOI"
+ },
+ "broken_bmp_short.bmp": {
+  "status": "Файл повреждён",
+  "problem": "меньше"
+ },
+ "broken_gif_cut.gif": {
+  "status": "Файл повреждён",
+  "problem": "0x3B"
+ },
+ "broken_tiff_cut.tif": {
+  "status": "Файл повреждён"
+ },
+ "broken_pcx_no_palette.pcx": {
+  "status": "Файл повреждён",
+  "problem": "палитры"
+ },
+ "broken_png_header_only.png": {
+  "status": "Файл повреждён"
+ },
+ "empty.jpg": {
+  "status": "Файл повреждён",
+  "problem": "пустой"
+ },
+ "text_renamed.jpg": {
+  "status": "Не изображение"
+ },
+ "png_renamed.jpg": {
+  "kind": "PNG",
+  "status": "Расширение не совпадает"
+ },
+ "bmp_renamed.gif": {
+  "kind": "BMP",
+  "status": "Расширение не совпадает"
+ }
+}
